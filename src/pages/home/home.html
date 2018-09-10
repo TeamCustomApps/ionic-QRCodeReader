@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-      <ion-title>QRCodeReader Sample </ion-title>
+      <ion-title>QRCodeReader Samplegit </ion-title>
   </ion-navbar>
   
   </ion-header>
@@ -10,8 +10,8 @@
   <ion-content padding>
       <button ion-button (click)="scan()">Scan ... </button>
       <div *ngIf="scanData">
-          <p>Scanned Text :{{scanData}} </p>
-          <p>Scanned Format : </p>
+          <p>Scanned Text :{{scanData.text}} </p>
+          <p>Scanned Format : {{scanData.format}} </p>
   
       </div>
   </ion-content>

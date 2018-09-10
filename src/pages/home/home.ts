@@ -20,9 +20,8 @@ export class HomePage {
         prompt : "Scan your barcode "
     }
     this.barcodeScanner.scan(this.options).then((barcodeData) => {
-
         console.log(barcodeData);
-        this.scanData = barcodeData.text;
+        this.scanData = barcodeData;
     }, (err) => {
         console.log("Error occured : " + err);
     });     
