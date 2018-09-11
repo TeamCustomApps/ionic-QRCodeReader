@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
   scanData : {};
-  key:any;
+  key:any = this.storage.length;
   options :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams,private barcodeScanner: BarcodeScanner, private storage: Storage) {
   }    
@@ -23,7 +23,8 @@ export class HomePage {
     this.barcodeScanner.scan(this.options).then((barcodeData) => {
         console.log(barcodeData);
         this.scanData = barcodeData;
-        this.storage.set(this.storage.length.toString(), barcodeData);
+        this.storage.set(this.key, barcodeData);
+        this.key++;
     }, (err) => {
         console.log("Error occured : " + err);
     });     
