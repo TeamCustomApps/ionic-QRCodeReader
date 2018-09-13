@@ -11,9 +11,12 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
   scanData : {};
-  key:any = this.storage.length;
+  key:any;
   options :BarcodeScannerOptions;
   constructor(public navCtrl: NavController, public navParams: NavParams,private barcodeScanner: BarcodeScanner, private storage: Storage) {
+    this.storage.length().then(result =>{
+      this.key = result + 1;
+    });
   }    
   
   scan(){
